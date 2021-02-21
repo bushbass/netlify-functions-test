@@ -1,6 +1,8 @@
-exports.handler = function (event, context, callback) {
-  callback(null, {
+exports.handler = async (event, context) => {
+  const name = event.queryStringParameters.name || "World";
+  console.log(event.queryStringParameters);
+  return {
     statusCode: 200,
-    body: "Hello, World"
-  });
+    body: `Hello, ${name}`
+  };
 };
